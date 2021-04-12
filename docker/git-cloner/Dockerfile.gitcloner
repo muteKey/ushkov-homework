@@ -1,0 +1,12 @@
+FROM alpine:latest
+
+MAINTAINER Kirill Ushkov "kirillushkov2010@gmail.com"
+
+RUN apk update --no-cache && apk add git
+
+ENTRYPOINT ["git", "clone"]
+
+WORKDIR /data
+
+VOLUME /data
+

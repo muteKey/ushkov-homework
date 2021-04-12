@@ -1,0 +1,14 @@
+FROM nginx:latest
+
+MAINTAINER Kirill Ushkov "kirillushkov2010@gmail.com"
+
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY index.html  /usr/share/nginx/html/
+
+ENV NGINX_VERSION=1.2
+
+COPY entrypoint.sh entrypoint.sh
+
+RUN chmod u+x entrypoint.sh
+
+CMD ["./entrypoint.sh"]
