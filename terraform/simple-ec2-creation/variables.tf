@@ -23,3 +23,18 @@ variable "volume_size" {
 variable "ebs_availability_zone" {
   default = "eu-west-1a"
 }
+
+variable "volume_device_name" {
+  default = "/dev/sdh"
+}
+
+variable "short_name" {
+  default = "itea"
+}
+
+variable "public_subnets" {
+  type = list(object({
+    availability_zone = string
+    cidr_block = string
+  }))
+}

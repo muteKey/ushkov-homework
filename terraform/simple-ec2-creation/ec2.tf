@@ -8,6 +8,7 @@ resource "aws_instance" "web" {
   instance_type        = var.instance_type
   key_name             = aws_key_pair.deployer.key_name
   vpc_security_group_ids = [aws_security_group.instance-sg.id]
+  subnet_id = aws_subnet.subnet_public[0].id
   tags = {
     Name = "HelloWorld-${var.environment}"
   }

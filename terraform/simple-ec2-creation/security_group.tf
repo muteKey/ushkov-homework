@@ -1,6 +1,7 @@
 resource "aws_security_group" "instance-sg" {
    name   = "itea-test-sg"
-   vpc_id = "vpc-0f0819e5627e10e5e"
+   vpc_id = aws_vpc.hometask6_vpc.id
+
    ingress {
      from_port   = 22
      to_port     = 22
@@ -20,6 +21,6 @@ resource "aws_security_group" "instance-sg" {
      cidr_blocks = ["0.0.0.0/0"]
    }
    tags = {
-     environment = "dev"
+     Name = "${var.short_name}-sec-group"
    }
  }
