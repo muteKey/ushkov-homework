@@ -1,0 +1,11 @@
+---
+Instances:
+- instance-type: t2.micro
+  ami-id: ami-063d4ab14480ac177
+  tags:
+  - Name: Amazon Linux 2
+- instance-type: t3.micro
+  ami-id: ami-032e5b6af8a711f30
+  tags:
+  - Name: Red Hat Enterprise Linux
+
