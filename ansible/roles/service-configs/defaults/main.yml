@@ -5,3 +5,7 @@ service:
     username: test
     name: test
     host: test.example.com
+  redis:
+    host: example.com
+  s3:
+    bucket_name: test

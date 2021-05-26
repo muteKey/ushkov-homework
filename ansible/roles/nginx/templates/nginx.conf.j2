@@ -1,0 +1,12 @@
+events {
+	worker_connections  {{ service.nginx.worker_connections }}; 
+}
+
+http {
+	server {
+    	listen {{ service.nginx.port }} default_server;
+    	location / {
+        	index   index.html;
+    	}
+	}	
+}

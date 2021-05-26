@@ -1,0 +1,6 @@
+env: prod
+deploy_user: ec2-user
+service:
+  nginx:
+    port: 8080
+    worker_connections: 1024

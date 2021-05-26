@@ -27,6 +27,7 @@
   with_items:
     - amazon_s3.yml
     - database.yml
+    - redis.yml
   tags:
     - configs
 

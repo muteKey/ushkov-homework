@@ -1,0 +1,45 @@
+---
+- name: Add nginx repository to yum
+  yum_repository:
+    name: nginx
+    description: Nginx Repository
+    baseurl: http://nginx.org/packages/centos/7/$basearch/
+    gpgkey: http://nginx.org/packages/keys/nginx_signing.key
+    gpgcheck: yes
+    priority: 2
+  tags:
+    - yum
+    - nginx
+
+- name: install the nginx
+  become: yes
+  yum: 
+    name: nginx
+    state: installed
+    update_cache: true  
+  tags:
+    - yum
+    - nginx
+
+- name: start nginx
+  service: 
+    name: nginx
+    enabled: yes
+    state: started
+
+- name: copy config files
+  template:
+    src: nginx.conf.j2
+    dest: '/etc/nginx/nginx.conf'
+  tags:
+    - copy
+    - nginx
+
+- name: restart nginx
+  service: 
+    name: nginx
+    state: restarted
+    enabled: yes
+  tags:
+    - nginx
+    - service

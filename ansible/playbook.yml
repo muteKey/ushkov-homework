@@ -1,0 +1,10 @@
+- hosts: stage
+  become: true
+  vars:
+    admin_group: itea
+    env: dev
+  roles:
+    - admin-users
+    - nginx
+    - service-configs
+
